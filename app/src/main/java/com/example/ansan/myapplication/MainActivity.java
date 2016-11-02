@@ -3,11 +3,15 @@ package com.example.ansan.myapplication;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +22,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View v){
+        if(isStoragePermissionGranted() == false){
+            Toast.makeText(getApplicationContext(),"SD카드 사용 불가", Toast.LENGTH_SHORT).show();
+            return; //함수 종료
+        }
+
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath(); //SD카드 위치 가져오기
+        String folder = path + "/myLoveDir";
+        String filename = folder + "/mylife.txt";
+
+        File myfolder = new File(folder);
+
         switch (v.getId()){
             case R.id.button: //폴더 생성
+                myfolder.mkdir();
+                Toast.makeText(getApplicationContext(),"폴더 생성", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button2: //폴더 삭제
                 break;
