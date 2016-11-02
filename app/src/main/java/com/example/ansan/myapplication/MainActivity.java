@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     FileOutputStream fos = new FileOutputStream(filename);
                     fos.write("안녕하세요".getBytes());
+                    fos.close();
+                    Toast.makeText(getApplicationContext(),"파일 생성", Toast.LENGTH_SHORT).show();
                 } catch (FileNotFoundException e) {
                     Toast.makeText(getApplicationContext(),"파일 생성 에러", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
