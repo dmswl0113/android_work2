@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"폴더 생성", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button2: //폴더 삭제
+                myfolder.delete();
+                Toast.makeText(getApplicationContext(),"폴더 삭제", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button3: //파일 생성
                 break;
