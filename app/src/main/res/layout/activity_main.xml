@@ -24,7 +24,7 @@
 
         <Button
             android:onClick="onClick"
-            android:layout_width="72dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="폴더 생성"
             android:layout_weight="1"
